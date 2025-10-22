@@ -29,15 +29,28 @@ export default function Home() {
           style={{ width: '100%', height: '600px' }} // Adjust height as needed
         />
 
-        {/* Inline script to initialize Landbot */}
+        {/* Updated inline script */}
         <script
-          type="module"
           dangerouslySetInnerHTML={{
             __html: `
-              var myLandbot = new Landbot.Container({
-                container: '#myLandbot',
-                configUrl: 'https://storage.googleapis.com/landbot.online/v3/H-3192567-0J79WIUZTS6I14S7/index.json'
-              });
+              window.addEventListener('mouseover', initLandbot, { once: true });
+              window.addEventListener('touchstart', initLandbot, { once: true });
+              var myLandbot;
+              function initLandbot() {
+                if (!myLandbot) {
+                  var s = document.createElement('script');
+                  s.type = "module"
+                  s.async = true;
+                  s.addEventListener('load', function() {
+                    myLandbot = new Landbot.Popup({
+                      configUrl: 'https://storage.googleapis.com/landbot.online/v3/H-3192567-0J79WIUZTS6I14S7/index.json',
+                    });
+                  });
+                  s.src = 'https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs';
+                  var x = document.getElementsByTagName('script')[0];
+                  x.parentNode.insertBefore(s, x);
+                }
+              }
             `,
           }}
         />
