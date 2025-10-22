@@ -18,7 +18,7 @@ export default function Home() {
       </Head>
 
       <main>
-        <Header title="Welcome to my app!" />
+        <Header title="Welcome to Synrgy Global AI demo!" />
         <p className="description">
           Get started by editing <code>pages/index.js</code>
         </p>
@@ -26,7 +26,7 @@ export default function Home() {
         {/* Landbot container */}
         <div
           id="myLandbot"
-          style={{ width: '100%', height: '600px' }} // Adjust height as needed
+          style={{ width: '40%', height: '500px' }} // Adjust height as needed
         />
 
         {/* Updated inline script */}
