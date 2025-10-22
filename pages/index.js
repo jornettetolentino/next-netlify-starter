@@ -18,7 +18,7 @@ export default function Home() {
         strategy="lazyOnload"
       />
 
-      {/* Inline script to initialize Landbot with event listeners */}
+      {/* Inline script to initialize Landbot as a small bubble pop-up */}
       <Script strategy="lazyOnload" id="landbot-init">
         {`
           window.addEventListener('mouseover', initLandbot, { once: true });
@@ -27,10 +27,10 @@ export default function Home() {
           function initLandbot() {
             if (!myLandbot) {
               var s = document.createElement('script');
-              s.type = "module"
+              s.type = "module";
               s.async = true;
               s.addEventListener('load', function() {
-                myLandbot = new Landbot.Popup({
+                myLandbot = new Landbot.Bubble({
                   configUrl: 'https://storage.googleapis.com/landbot.online/v3/H-3192567-0J79WIUZTS6I14S7/index.json',
                 });
               });
@@ -43,7 +43,7 @@ export default function Home() {
       </Script>
 
       <main>
-        <Header title="Welcome to my app!" />
+        <Header title="Welcome to Synrgy Global AI!" />
         <p className="description">
           Get started by editing <code>pages/index.js</code>
         </p>
